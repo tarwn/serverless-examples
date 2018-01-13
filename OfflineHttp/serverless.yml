@@ -1,0 +1,22 @@
+service: example-offline-http
+
+plugins:
+  - serverless-offline
+
+custom:
+  defaults:
+    stage: dev
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: us-east-1
+
+functions:
+  events:
+    handler: functions/eventsHttp.handler
+    events:
+      - http:
+          method: POST
+          path: events
+          cors: true
