@@ -10,7 +10,7 @@ const kinesis = new AWS.Kinesis({
 });
 
 module.exports.handler = (event, context, callback) => { 
-	console.log("You POSTed an event!");
+	console.log("SUPER!!!!! You POSTed an event: " + JSON.stringify(event.body));
 
 	var putReq = kinesis.putRecord({
 		Data: JSON.stringify(event.body),
