@@ -21,3 +21,13 @@ functions:
           method: POST
           path: events
           cors: true
+  eventsStream:
+    handler: functions/eventsStream.handler
+    events:
+      - stream:
+          type: kinesis
+          #arn: need an arn
+          batchSize: 100
+          startingPosition: LATEST
+
+#resources: need Resources entry for kinesis  
